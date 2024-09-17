@@ -1,0 +1,37 @@
+<mat-card class="auth-container">
+    <h2>Sign Up</h2>
+  
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="name" formControlName="name" class="form-control" required />
+            <mat-error *ngIf="signupForm.get('name')!.hasError('name') && signupForm.get('name')!.touched">
+              Please enter a valid name.
+            </mat-error>
+          </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" class="form-control"  required />
+            <mat-error *ngIf="signupForm.get('email')!.hasError('email') && signupForm.get('email')!.touched">
+            Please enter a valid email.
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" class="form-control" required />
+            <mat-error *ngIf="signupForm.get('password')!.hasError('minlength')">
+            Password should be at least 6 characters long.
+            </mat-error>
+        </mat-form-field>
+    
+        <button mat-raised-button color="green" type="submit" class="full-width btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">
+            Sign Up
+        </button>
+    </form>
+  
+    <p class="toggle-link" routerLink="/signin">
+      Already have an account? Sign in.
+    </p>
+  </mat-card>
+  

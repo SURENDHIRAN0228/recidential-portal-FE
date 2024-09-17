@@ -1,0 +1,58 @@
+<mat-card class="auth-container">
+    <h2>Sign Up</h2>
+  
+    <form [formGroup]="maintenanceRequestForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="name" formControlName="name" class="form-control" required />
+            <mat-error *ngIf="maintenanceRequestForm.get('name')!.hasError('name') && maintenanceRequestForm.get('name')!.touched">
+              Please enter a valid name.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" class="form-control" required />
+            <mat-error *ngIf="maintenanceRequestForm.get('email')!.hasError('email') && maintenanceRequestForm.get('email')!.touched">
+            Please enter a valid email.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Unit Number</mat-label>
+            <input matInput type="unitNumber" formControlName="unitNumber" class="form-control" required />
+            <mat-error *ngIf="maintenanceRequestForm.get('unitNumber')!.hasError('unitNumber') && maintenanceRequestForm.get('unitNumber')!.touched">
+              Please enter unitNumber.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Service Type</mat-label>
+            <input matInput type="serviceType" formControlName="serviceType" class="form-control" required />
+            <mat-error *ngIf="maintenanceRequestForm.get('serviceType')!.hasError('serviceType') && maintenanceRequestForm.get('serviceType')!.touched">
+              Please enter serviceType.
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Summary</mat-label>
+            <input matInput type="summary" formControlName="summary" class="form-control" required />
+            <mat-error *ngIf="maintenanceRequestForm.get('summary')!.hasError('summary')">
+                Please enter summary.
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Details</mat-label>
+            <input matInput type="details" formControlName="details" class="form-control" required />
+            <mat-error *ngIf="maintenanceRequestForm.get('details')!.hasError('details') && maintenanceRequestForm.get('details')!.touched">
+              Please enter details.
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="green" type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">
+            Post request
+        </button>
+    </form>
+  
+    <p class="toggle-link" routerLink="/login">
+      Admin --
+    </p>
+  </mat-card>
+  
